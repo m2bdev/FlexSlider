@@ -712,7 +712,7 @@
                        (vars.itemWidth > slider.w) ? slider.w : vars.itemWidth;
         slider.visible = Math.floor(slider.w/(slider.itemW + slideMargin));
         slider.move = (vars.move > 0 && vars.move < slider.visible ) ? vars.move : slider.visible;
-        slider.pagingCount = Math.ceil(((slider.count - slider.visible)/slider.move) + 1);
+        slider.pagingCount = Math.ceil(((slider.count - slider.visible)/((slider.move<=0) ? 1 : slider.move)) + 1);
         slider.last =  slider.pagingCount - 1;
         slider.limit = (slider.pagingCount === 1) ? 0 :
                        (vars.itemWidth > slider.w) ? ((slider.itemW + (slideMargin * 2)) * slider.count) - slider.w - slideMargin : ((slider.itemW + slideMargin) * slider.count) - slider.w - slideMargin;
